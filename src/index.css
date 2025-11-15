@@ -1,0 +1,39 @@
+@import "tailwindcss";
+/* infinite scroll animation */
+/* ✔ Smooth infinite marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ✔ Reverse direction (Right → Left) */
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* ✔ Classes */
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 18s linear infinite;
+}
+.font-cinzel {
+  font-family: "Cinzel", serif;
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+
