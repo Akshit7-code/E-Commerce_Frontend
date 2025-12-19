@@ -82,7 +82,7 @@ export default function CursorFollower() {
       <div
         ref={outerRef}
         className={`pointer-events-none fixed rounded-full border border-black z-[9999]
-          transition-all duration-300 ease-out
+          transition-all duration-300 ease-out hidden lg:block
           ${hovered ? "w-16 h-16 opacity-60" : "w-12 h-12 opacity-80"}
         `}
         style={{
