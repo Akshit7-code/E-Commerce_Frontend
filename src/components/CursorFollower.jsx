@@ -94,7 +94,7 @@ export default function CursorFollower() {
       <div
         ref={innerRef}
         className={`pointer-events-none fixed rounded-full bg-black z-[9999]
-          transition-all duration-200 ease-out
+          transition-all duration-200 ease-out hidden lg:block
           ${hovered ? "w-6 h-6" : "w-4 h-4"}
         `}
         style={{
