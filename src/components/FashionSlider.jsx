@@ -156,7 +156,7 @@ export default function FullScreenSlider() {
       <div className="w-full h-screen relative overflow-hidden buttonclass">
 
         <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center justify-center z-30 text-center px-4 sm:px-6 md:px-8 py-4 sm:py-0">
-          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
+          <h1 className="text-white text-4xl sm:text-4xl md:text-6xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
             Where Fashion Meets <span className="text-transparent" style={{ WebkitTextStroke: "1px white" }}><br/>Fearless</span>
           </h1>
 
@@ -165,7 +165,7 @@ export default function FullScreenSlider() {
             Step into elegance, comfort, and statement pieces that turn heads.
           </p>
 
-          <button className="bg-white text-black nav-link font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-neutral-800 cursor-pointer hover:text-white transition-all duration-500 shadow-lg text-sm sm:text-base">
+          <button className="bg-white text-black nav-link font-semibold px-8 sm:px-8 py-4 sm:py-3 rounded-full hover:bg-neutral-800 cursor-pointer hover:text-white transition-all duration-500 shadow-lg text-sm sm:text-base">
             Explore Collection
           </button>
         </div>
