@@ -28,17 +28,19 @@ export default function FashionSection() {
       <div className="max-w-7xl mx-auto py-16 text-white">
 
         {/* Headings */}
-        <p className="font-semibold mb-2 tracking-wide uppercase text-gray-300 text-center text-xs sm:text-base">
-          Trending Collections
-        </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-2 sm:py-0">
+          <p className="font-semibold mb-2 tracking-wide uppercase text-gray-300 text-center text-xs sm:text-base">
+            Trending Collections
+          </p>
 
-        <h2 className="font-bold mb-4 tracking-wide text-center text-white text-2xl sm:text-4xl">
-          Explore Fashion That Fits Your Style
-        </h2>
+          <h2 className="font-bold mb-4 tracking-wide text-center text-white text-2xl sm:text-4xl">
+            Explore Fashion That Fits Your Style
+          </h2>
 
-        <p className="text-gray-300 text-center mb-6 sm:mb-10 text-sm sm:text-base px-4 sm:px-0">
-          Check out our latest products and stay ahead with trendy looks.
-        </p>
+          <p className="text-gray-300 text-center mb-2 sm:mb-10 text-sm sm:text-base px-4 sm:px-0">
+            Check out our latest products and stay ahead with trendy looks.
+          </p>
+        </div>
 
         {/* Tabs */}
         <div className="flex justify-center gap-3 sm:gap-4 mt-4 mb-8 sm:mb-10 flex-wrap nav-link px-2 sm:px-0">
