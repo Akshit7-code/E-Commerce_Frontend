@@ -29,22 +29,22 @@ export default function DealOfTheDay() {
   }, []);
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-16">
+    <section className="w-full max-w-7xl mx-auto py-16 hidden lg:block">
       <div className="grid grid-cols-3 grid-rows-4 gap-6 h-[800px]">
 
         {/* 1 -> Left tall image */}
         <div className="row-span-4 rounded-xl overflow-hidden shadow-xl">
-          <img src="sc5.jpg" className="w-full h-full object-cover hover:scale-105 duration-700" />
+          <img src="image/sc5.webp" loading="lazy" className="w-full h-full object-cover hover:scale-105 duration-700" />
         </div>
 
         {/* 5 -> Right tall image */}
         <div className="row-span-4 col-start-3 row-start-1 rounded-xl overflow-hidden shadow-xl">
-          <img src="sc6.jpg" className="w-full h-full object-cover hover:scale-105 duration-700" />
+          <img src="image/sc6.webp" loading="lazy" className="w-full h-full object-cover hover:scale-105 duration-700" />
         </div>
 
         {/* 2 -> Top middle small image */}
         <div className="rounded-xl overflow-hidden shadow-md">
-          <img src="banner.jpg" className="w-full h-full object-cover hover:scale-105 duration-700" />
+          <img src="image/banner.webp" loading="lazy" className="w-full h-full object-cover hover:scale-105 duration-700" />
         </div>
 
         {/* 4 -> Middle sale content (BIGGER box) */}
@@ -90,7 +90,7 @@ export default function DealOfTheDay() {
 
         {/* 3 -> Bottom middle small image */}
         <div className="col-start-2 row-start-4 rounded-xl overflow-hidden shadow-md">
-          <img src="banner4.jpg" className="w-full object-top h-full object-cover hover:scale-105 duration-700" />
+          <img src="image/banner4.webp" loading="lazy" className="w-full object-top h-full object-cover hover:scale-105 duration-700" />
         </div>
 
       </div>

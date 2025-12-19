@@ -72,62 +72,70 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   const defaultImage = "https://images.unsplash.com/photo-1622519407650-3df9883f76a5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D";
+  const defaultImage2 = "image/sc7.webp";
   const isNewProduct = false; // 🔸 will activate later based on product.createdAt
 
   return (
     <Link to={`/product/${product.category === "Men's Clothing" ? "Men" : "Women"}/${product._id}`}>
-    <div className="bg-white border border-gray-100 rounded-xl hover:shadow-md transition-all duration-300 cursor-pointer">
-      {/* Image Section */}
-      <div className="relative overflow-hidden">
-        <img
-          src={product.images?.[0] || defaultImage}
-          alt={product.name}
-          className="w-full h-[320px] object-cover transition-transform duration-500 hover:scale-105"
-        />
-
-        {/* SALE / NEW Tag */}
-        {(product.salePrice || isNewProduct) && (
-          <span className="absolute top-3 left-3 bg-red-500 text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-full tracking-wide">
-            {product.salePrice ? "SALE" : "NEW"}
-          </span>
-        )}
-      </div>
-
-      {/* Info Section */}
-      <div className="p-3">
-        {/* Product Name */}
-        <h3 className="text-sm font-medium text-gray-800 truncate">
-          {product.name}
-        </h3>
-
-        {/* Price */}
-        <div className="flex items-center gap-2 mt-1">
-          {product.salePrice ? (
-            <>
-              <span className="text-[15px] font-semibold text-gray-900">
-                ₹{product.salePrice}
-              </span>
-              <span className="text-sm text-gray-400 line-through">
-                ₹{product.originalPrice}
-              </span>
-            </>
+      <div className="bg-white border border-gray-100 rounded-xl hover:shadow-md transition-all duration-300 cursor-pointer">
+        {/* Image Section */}
+        <div className="relative overflow-hidden">
+          {product.category === "Men's Clothing" ? (
+            <img
+              src={product.images?.[0] || defaultImage}
+              alt={product.name}
+              className="w-full h-[320px] object-cover transition-transform duration-500 hover:scale-105"
+            />
           ) : (
-            <span className="text-[15px] font-semibold text-gray-900">
-              ₹{product.originalPrice}
+            <img
+              src={product.images?.[0] || defaultImage2}
+              alt={product.name}
+              className="w-full h-[320px] object-cover transition-transform duration-500 hover:scale-105"
+            />
+          )}
+          {/* SALE / NEW Tag */}
+          {(product.salePrice || isNewProduct) && (
+            <span className="absolute top-3 left-3 bg-red-500 text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-full tracking-wide">
+              {product.salePrice ? "SALE" : "NEW"}
             </span>
           )}
         </div>
 
-        {/* Colors or Stock */}
-        <p className="text-xs text-gray-500 mt-1">
-          {product.colors
-            ? `${product.colors} Colors`
-            : product.stock > 0
-            ? `${product.stock} in stock`
-            : "Out of Stock"}
-        </p>
+        {/* Info Section */}
+        <div className="p-3">
+          {/* Product Name */}
+          <h3 className="text-sm font-medium text-gray-800 truncate">
+            {product.name}
+          </h3>
+
+          {/* Price */}
+          <div className="flex items-center gap-2 mt-1">
+            {product.salePrice ? (
+              <>
+                <span className="text-[15px] font-semibold text-gray-900">
+                  ₹{product.salePrice}
+                </span>
+                <span className="text-sm text-gray-400 line-through">
+                  ₹{product.originalPrice}
+                </span>
+              </>
+            ) : (
+              <span className="text-[15px] font-semibold text-gray-900">
+                ₹{product.originalPrice}
+              </span>
+            )}
+          </div>
+
+          {/* Colors or Stock */}
+          <p className="text-xs text-gray-500 mt-1">
+            {product.colors
+              ? `${product.colors} Colors`
+              : product.stock > 0
+                ? `${product.stock} in stock`
+                : "Out of Stock"}
+          </p>
+        </div>
       </div>
-    </div>
     </Link>
   );
 }

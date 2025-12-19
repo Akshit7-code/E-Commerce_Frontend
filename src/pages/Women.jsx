@@ -15,7 +15,7 @@ export default function WomensClothes() {
     const fetchProducts = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/WomenProduct"
+          "https://e-commerce-backend-675w.onrender.com/api/WomenProduct"
         );
         const data = await res.json();
         setProducts(data);
@@ -41,7 +41,6 @@ export default function WomensClothes() {
         page="Women"
         background="https://images.unsplash.com/photo-1627489105008-063e31b2dbcd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdvbWVuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
       />
-
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto">
 
@@ -54,16 +53,16 @@ export default function WomensClothes() {
             </p>
           </div>
 
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 px-6">
 
-            <div className="col-span-1">
+            <div className="col-span-1 hidden lg:block">
               <SidebarFilter
                 products={products}
                 setFilteredProducts={setFilteredProducts}
               />
             </div>
 
-            <div className="col-span-3">
+            <div className="col-span-3 w-full px-2 sm:px-4 md:px-6">
               {loading ? (
                 <div className="flex justify-center items-center py-20">
                   <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-800 rounded-full animate-spin"></div>

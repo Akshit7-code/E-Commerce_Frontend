@@ -1,8 +1,49 @@
 import React from "react";
 import HeroSection from "../components/HeroSectionMenWomen";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { useState } from "react";
 
 function ContactPage() {
+  const [FirstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+ const HandleSumbit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch("https://e-commerce-backend-675w.onrender.com/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: `${FirstName} ${lastName}`,
+        email,
+        message,
+        phoneNumber,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert("Email sent successfully!");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+      setPhoneNumber("");
+    }
+  } catch (error) {
+    console.error("Error sending email:", error);
+    alert("Failed to send email. Please try again later.");
+  }
+};
+
+
+
   return (
     <>
       {/* Hero Section */}
@@ -16,9 +57,8 @@ function ContactPage() {
       <div
         className="w-full relative"
         style={{
-          backgroundImage: "url('/leaveIma.jpg')",
+          backgroundImage: "url('image/leaveIma.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "bottom",
         }}
@@ -58,7 +98,7 @@ function ContactPage() {
               Send Us a Message
             </h2>
 
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={HandleSumbit}>
               {/* First Name */}
               <div className="flex flex-col">
                 <label className="mb-1 font-medium">First Name</label>
@@ -66,6 +106,9 @@ function ContactPage() {
                   type="text"
                   placeholder="Enter your first name"
                   className="border border-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-black transition"
+                  onChange={(e)=>setFirstName(e.target.value)}
+                  value={FirstName}
+                  required
                 />
               </div>
 
@@ -76,6 +119,8 @@ function ContactPage() {
                   type="text"
                   placeholder="Enter your last name"
                   className="border border-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-black transition"
+                  onChange={(e)=>setLastName(e.target.value)}
+                  value={lastName}
                 />
               </div>
 
@@ -86,6 +131,9 @@ function ContactPage() {
                   type="email"
                   placeholder="Enter your email"
                   className="border border-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-black transition"
+                  onChange={(e)=>setEmail(e.target.value)}
+                  value={email}
+                  required
                 />
               </div>
 
@@ -96,6 +144,9 @@ function ContactPage() {
                   type="text"
                   placeholder="Enter your phone number"
                   className="border border-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-black transition"
+                  onChange={(e)=>setPhoneNumber(e.target.value)}
+                  value={phoneNumber}
+                  required
                 />
               </div>
 
@@ -106,6 +157,9 @@ function ContactPage() {
                   rows="5"
                   placeholder="Write your message here..."
                   className="border border-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-black transition"
+                  onChange={(e)=>setMessage(e.target.value)}
+                  value={message}
+                  required
                 ></textarea>
               </div>
 
@@ -113,7 +167,7 @@ function ContactPage() {
               <div className="md:col-span-2 flex justify-center mt-4">
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-[#1F1F20] text-white rounded-lg font-medium transition-all duration-300 hover:bg-gray-800 hover:scale-105"
+                  className="cursor-pointer px-8 py-3 bg-[#1F1F20] text-white rounded-lg font-medium transition-all duration-300 hover:bg-gray-800 hover:scale-105"
                 >
                   Send Message
                 </button>

@@ -10,7 +10,7 @@ const testimonials = [
     date: "Jan 10, 2024",
     role: "Founder — PixelWave Studio",
     message:
-      "This platform has transformed the way I work. Their efficiency and support helped me scale my projects faster than expected.",
+      "This platform has transformed the way I work. Their efficiency and support helped me.",
     avatar: "https://i.pravatar.cc/150?img=1",
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     date: "Feb 03, 2024",
     role: "Marketing Specialist",
     message:
-      "The team is professional and always ready to help. I am impressed with their dedication and attention to detail.",
+      "The team is professional and always ready to help. I am impressed with their dedication.",
     avatar: "https://i.pravatar.cc/150?img=2",
   },
   {
@@ -80,7 +80,7 @@ export default function TestimonialCircleSlider() {
       <section
         className="w-full py-16 pt-28 px-6 flex flex-col items-center relative"
         style={{
-          backgroundImage: "url('backgroundimage.jpg')",
+          backgroundImage: "url('image/backgroundimage.webp')",
           backgroundSize: "cover",
           backgroundPosition: "top",
         }}
@@ -88,7 +88,7 @@ export default function TestimonialCircleSlider() {
 
  <div className="z-10 absolute -top-10 left-0 w-full overflow-hidden leading-none -rotate-180">
         <svg
-          className="w-full h-[80px] md:h-[120px]"
+          className="w-full h-[80px] md:h-[120px] hidden lg:block"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1920 217"
@@ -114,18 +114,20 @@ export default function TestimonialCircleSlider() {
 
         {/* White overlay */}
         <div className="absolute inset-0 bg-white opacity-70"></div>      {/* Heading Section */}
-        <div className="text-center z-10">
-          <p className="font-semibold mb-2 tracking-wide uppercase" style={{ color: "#1F1F20" }}>
+        <div className="text-center z-10 px-4 sm:px-6 md:px-0">
+
+          <p className="font-semibold mb-2 uppercase tracking-[2px] sm:tracking-wide text-sm sm:text-base" style={{ color: "#1F1F20" }}>
             Customer Stories
           </p>
 
-          <h2 className="text-4xl font-bold mb-4 tracking-wide" style={{ color: "#1F1F20" }}>
+          <h2 className="font-bold mb-3 tracking-wide text-2xl sm:text-3xl md:text-4xl" style={{ color: "#1F1F20" }}>
             What Our Clients Say About Us
           </h2>
 
-          <p className="mb-10" style={{ color: "#1F1F20" }}>
+          <p className="mb-8 sm:mb-10 text-sm sm:text-base" style={{ color: "#1F1F20" }}>
             — real experiences, real results.
           </p>
+
         </div>
 
 
@@ -191,10 +193,11 @@ export default function TestimonialCircleSlider() {
           </div>
 
           {/* RIGHT SIDE CIRCLE AVATARS (UNCHANGED) */}
-          <div className="relative w-[460px] h-[460px] flex items-center justify-center">
+        <div className="relative w-[460px] h-[460px] flex items-center justify-center hidden sm:flex">
             <img
               src={testimonials[active].avatar}
               className="w-44 h-44 rounded-full border-[8px] border-white shadow-2xl z-20 object-cover"
+              loading="lazy"
             />
 
             {testimonials.map((item, index) => {
@@ -209,6 +212,7 @@ export default function TestimonialCircleSlider() {
                   style={{
                     transform: `rotate(${angle}deg) translate(180px) rotate(-${angle}deg)`,
                   }}
+                  loading="lazy"
                 />
               );
             })}

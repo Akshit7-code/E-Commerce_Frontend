@@ -7,9 +7,19 @@ import {
 } from "react-icons/fa";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 
+const images = [
+  { id: 1, image: "image/footer1.webp" },
+  { id: 2, image: "image/footer2.webp" },
+  { id: 3, image: "image/footer3.webp" },
+  { id: 4, image: "image/footer4.webp" },
+  { id: 5, image: "image/footer5.webp" },
+  { id: 6, image: "image/footer6.webp" },
+];
+
+
 const Footer = () => {
   return (
-    <footer className="bg-neutral-900 text-gray-300 pt-20 pb-6 text-sm">
+    <footer className="bg-neutral-900 buttonclass text-gray-300 pt-20 pb-6 text-sm">
 
       {/* MAIN GRID: 4 SECTIONS */}
       <div className="max-w-[1500px] mx-auto px-10 md:px-28 grid grid-cols-1 md:grid-cols-4 gap-16 pb-16">
@@ -42,7 +52,7 @@ const Footer = () => {
 
         {/* ============ INFORMATION SECTION ============ */}
         <div>
-          <h2 className="text-white font-semibold text-xl mb-10 tracking-wide">
+          <h2 className="text-white font-semibold text-xl mb-6 tracking-wide">
             INFORMATION
           </h2>
 
@@ -63,8 +73,10 @@ const Footer = () => {
           </h2>
 
           <div className="grid grid-cols-3 gap-3">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="w-full h-20 bg-neutral-700"></div>
+            {images.map((item) => (
+              <div key={item.id} className="w-full h-20 bg-neutral-700">
+                <img src={item.image} alt="" className="w-full h-full object-cover" />
+              </div>
             ))}
           </div>
         </div>

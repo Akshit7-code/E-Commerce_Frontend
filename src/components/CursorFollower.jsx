@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function CursorFollower() {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
+
+  const location = useLocation();
 
   const [hovered, setHovered] = useState(false);
 
@@ -71,7 +74,7 @@ export default function CursorFollower() {
     });
  
     return () => window.removeEventListener("mousemove", move);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>

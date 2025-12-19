@@ -4,6 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Navbar from "./Navbar";
 import "swiper/css";
 import "swiper/css/navigation";
+import { motion } from "framer-motion";
 import "swiper/css/pagination";
 import { FaShippingFast, FaExchangeAlt, FaMoneyBillWave, FaShieldAlt } from "react-icons/fa";
 
@@ -128,19 +129,19 @@ const CustomArrow = ({ direction, refProp }) => {
 export default function FullScreenSlider() {
   const images = [
     {
-      src: "/banner2.jpg",
+      src: "image/banner2.webp",
       main: "Autumn Collection",
       sub: "New Trends 2025",
       button: "Shop Now",
     },
     {
-      src: "/banner5.jpg",
+      src: "image/banner5.webp",
       main: "Summer Vibes",
       sub: "Fresh & Stylish",
       button: "Explore",
     },
     {
-      src: "/banner3.jpg",
+      src: "image/banner3.webp",
       main: "Winter Fashion",
       sub: "Stay Warm, Look Cool",
       button: "Discover",
@@ -154,27 +155,32 @@ export default function FullScreenSlider() {
     <>
       <div className="w-full h-screen relative overflow-hidden buttonclass">
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-30 text-center">
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-            Where Fashion Meets <span className="text-transparent" style={{ WebkitTextStroke: "1px white" }}>Fearless</span>
+        <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center justify-center z-30 text-center px-4 sm:px-6 md:px-8 py-4 sm:py-0">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
+            Where Fashion Meets <span className="text-transparent" style={{ WebkitTextStroke: "1px white" }}><br/>Fearless</span>
           </h1>
-          <p className="text-white text-lg md:text-xl mb-8 drop-shadow-md max-w-2xl">
+
+          <p className="text-white text-sm sm:text-base md:text-lg mb-6 sm:mb-8 drop-shadow-md max-w-full sm:max-w-2xl">
             Discover the latest trends in fashion, handpicked for the modern wardrobe.
             Step into elegance, comfort, and statement pieces that turn heads.
           </p>
-          <button className="bg-white text-black nav-link font-semibold px-8 py-3 rounded-full hover:bg-neutral-800 cursor-pointer hover:text-white transition-all duration-500 shadow-lg">
+
+          <button className="bg-white text-black nav-link font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-neutral-800 cursor-pointer hover:text-white transition-all duration-500 shadow-lg text-sm sm:text-base">
             Explore Collection
           </button>
         </div>
 
+
         <div>
           <Navbar />
         </div>
+
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           pagination={{
             clickable: true,
-            el: ".custom-pagination",
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active',
           }}
           loop
           slidesPerView={1}
@@ -209,103 +215,71 @@ export default function FullScreenSlider() {
                   className="zoom-slide w-full h-full object-cover"
                 />
 
-                {/* Overlay with text */}
-                <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center px-6 md:px-20 text-center">
-                </div>
+                <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center px-6 md:px-20 text-center"></div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* Custom vertical pagination container */}
-        {/* <div className="custom-pagination absolute left-55 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-20"></div> */}
-        {/* Custom vertical pagination container */}
-        <div
-          className="custom-pagination"
-          style={{
-            position: "absolute",
-            top: "60%",
-            left: "150px",
-            transform: "translateY(-50%)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "26px",
-            zIndex: 20,
-          }}
-        ></div>
-
-        {/* Custom Navigation */}
-        {/* <CustomArrow direction="prev" refProp={prevRef} />
-      <CustomArrow direction="next" refProp={nextRef} /> */}
 
         {/* Styles */}
         <style>{`
-        /* Zoom-out animation for image (slower) */
-        @keyframes zoomOut {
-          0% { transform: scale(1.07); }
-          100% { transform: scale(1); }
-        }
-        .zoom-slide {
-          animation: zoomOut 1.8s ease-in-out forwards;
-        }
+    /* Zoom-out animation for image */
+    @keyframes zoomOut {
+      0% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+    .zoom-slide {
+      animation: zoomOut 1.8s ease-in-out forwards;
+    }
 
-        /* Fade animation for text */
-        @keyframes fade {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade {
-          animation: fade 1s ease-in-out forwards;
-        }
+    /* Fade animation for text */
+    @keyframes fade {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade {
+      animation: fade 1s ease-in-out forwards;
+    }
 
-        /* Custom vertical square pagination */
-        /* Custom vertical square pagination */
-        .custom-pagination .swiper-pagination-bullet {
-          width: 17px;
-          height: 17px;
-          background-color: transparent;
-          border: 3px solid white;
-          border-radius: 2px;
-          margin: 8px 0; /* vertical spacing */
-          position: relative;
-        }
-
-        /* Tail on each bullet */
-        .custom-pagination .swiper-pagination-bullet::after {
-          content: "";
-          position: absolute;
-          left: 100%; /* tail on the right */
-          top: 50%;
-          width: 60px;
-          height: 2px;
-          background-color: white;
-          transform: translateY(-50%);
-          border-radius: 1px;
-          margin-left: 10px;
-        }
-
-      `}</style>
+    /* Default Swiper Pagination */
+    .swiper-pagination-bullet {
+      background-color: rgba(255, 255, 255, 0.2); 
+      opacity: 1;
+      width: 12px;      /* increase bullet width */
+    height: 12px;  
+    }
+    .swiper-pagination-bullet-active {
+      background-color: #ffffff; /* white active */
+      width:12px;     
+    height: 12px;  
+    }
+  `}</style>
       </div>
 
-      <section className="w-full pt-20 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <section className="w-full bg-white pt-8 pb-8 sm:pt-20 sm:pb-8">
+        <div className="max-w-7xl mx-auto text-center px-4 sm:px-0">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10"
+          >
             {uspData.map((item, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg p-8 hover:scale-105 transition-transform duration-300 cursor-pointer border border-gray-200"
+                className="bg-white shadow-lg p-6 sm:p-8 hover:scale-105 transition-transform duration-300 cursor-pointer border border-gray-200"
               >
-                <div className="flex justify-center text-black mb-4">
-                  {item.icon}
-                </div>
-
+                <div className="flex justify-center text-black mb-4">{item.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
+
     </>
   );
 }
