@@ -1,16 +1,59 @@
-# React + Vite
+# 🛒 E-Commerce Website (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-17.0.2-blue?logo=react&logoColor=white)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.3.2-blue?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=black)](https://www.javascript.com/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Project Overview
+This is the **frontend of a modern eCommerce website** built with **React.js**.  
+It allows users to **browse products, add items to the cart, and purchase them seamlessly**.  
+The design is **fully responsive**, ensuring a smooth experience on **desktop, tablet, and mobile devices**.  
 
-## React Compiler
+The frontend is connected to a backend API for **authentication, product management, and order processing**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚡ Features
+- ✅ No User authentication (Sign Up / Login / Logout). Just guest accound with direct purchases.  
+- ✅ Browse products by category and search  
+- ✅ Product detail page with images, description, and reviews  
+- ✅ Add to cart   
+- ✅ Fully responsive design  
+- ✅ Interactive UI with modern animations  
+- ✅ Future feature : Checkout integration with backend API  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** React.js
+- **Styling:** Tailwind CSS, CSS3  
+- **API Requests:** Axios / Fetch API  
+- **Extras:** React Icons, Swiper.js (for sliders)  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js >= 14.x  
+- npm >= 6.x  
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/YourUsername/E-Commerce_Frontend.git
+
+# Navigate to project folder
+cd E-Commerce_Frontend
+
+# Install dependencies
+npm install
+
+# Create .env file and add backend API URL
+REACT_APP_API_URL=your_backend_api_url
+
+# Start development server
+npm start
