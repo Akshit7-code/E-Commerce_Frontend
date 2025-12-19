@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FiUpload } from "react-icons/fi";
-import { set } from "mongoose";
 import { useEffect } from "react";
 
 export default function AdminAddProduct() {
